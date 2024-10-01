@@ -5,8 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:chatApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="ChatApp" Height="450" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" /> <!--chat_log-->
+            <RowDefinition Height="Auto" /> <!--message_input-->
+        </Grid.RowDefinitions>
 
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200" /> <!--user_list-->
+            <ColumnDefinition Width="*" /> <!--chat_area-->
+        </Grid.ColumnDefinitions>
+        
+        <!--user_list-->
+        <ListBox Name="UserList" Grid.Row="0" Grid.Column="0"
+                 Margin="5" Background="LightGray" SelectionMode="Single">
+            <ListBoxItem Content="Room 1" />
+            <ListBoxItem Content="Room 2" />
+        </ListBox>
+        
+        <!--chat_log-->
+        <ListBox Name="ChatLog" Grid.Row="0" Grid.Column="1" Margin="5"
+                 Background="White" BorderBrush="Gray" BorderThickness="1">
+        </ListBox>
+        
+        <!--message_input-->
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Margin="5">
+            <TextBox Name="MessageInput" Width="600" Height="40" VerticalAlignment="Center"
+                     Margin="5" Text="Type your message here.." />
+            <Button Content="Send" Width="100" Height="40" Margin="5" VerticalAlignment="Center"
+                    Click="SendButton_Click" />
+        </StackPanel>
+                 
+        
     </Grid>
 </Window>
